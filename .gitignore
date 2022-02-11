@@ -3,4 +3,6 @@ terraform.tfvars
 .terraform.lock.hcl
 terraform.tfstate
 .idea/
+target/
+*.iml
 terraform.tfstate.backup
