@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ovh.testdomain</groupId>
     <artifactId>project</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <properties>

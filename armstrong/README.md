@@ -18,6 +18,7 @@ Single-node plain Java setup on VPS
 - Traefik balances `8000` and `8001` ports
 - next application instance binds to one of them
 - previous instance is getting terminated
+- provisioning may fail on `deployment` step due to unfinished initialization of the VPS. Simply re-try it in 30-60 seconds.
 
 ## Provisioning and blue deployment
 Create `terraform.tfvars` file with your secrets
@@ -34,30 +35,34 @@ domain_name = "testdomain.ovh"
 ```
 then build the project
 ```
-mvn clean install
+$ mvn clean install
 ```
 and finally
 ```
 $ terraform init
-$ terraform apply
+$ terraform apply -auto-approve
 var.project_version
   Enter a value: 1.0.1
 ip = "..."
 url = "https://testdomain.ovh"
 status = "running"
+$ curl https://testdomain.ovh/
+Version 1.0.1
 ```
 
 ## Green deployment
 Increment `version` in pom.xml, build the project
 ```
-mvn clean install
+$ mvn clean install
 ```
 and finally
 ```
-$ terraform apply -replace=null_resource.deployment
+$ terraform apply -replace=null_resource.deployment -auto-approve
 var.project_version
   Enter a value: 1.0.2
 ip = "..."
 url = "https://testdomain.ovh"
 status = "running"
+$ curl https://testdomain.ovh/
+Version 1.0.2
 ```
