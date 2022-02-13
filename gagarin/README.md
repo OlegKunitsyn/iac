@@ -14,6 +14,8 @@ Single-node plain PHP Symfony setup on VPS
 - Traefik 2.6.0
 - Let's Encrypt
 
+<img src="graph.svg" alt="graph"/>
+
 ## Notes
 - simple security model
 - default settings

@@ -14,6 +14,8 @@ Single-node plain Java setup on VPS
 - Traefik 2.6.0
 - Let's Encrypt
 
+<img src="graph.svg" alt="graph"/>
+
 ## Notes
 - Traefik balances `8000` and `8001` ports
 - next application instance binds to one of them
