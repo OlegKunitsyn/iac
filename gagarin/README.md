@@ -31,7 +31,6 @@ hetzner_fingerprint = "..."
 ovh_application_key = "..."
 ovh_application_secret = "..."
 ovh_consumer_key = "..."
-domain_name = "testdomain.ovh"
 ```
 then
 ```

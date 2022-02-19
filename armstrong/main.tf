@@ -9,10 +9,11 @@ terraform {
   }
 }
 
-variable "hetzner_token_cloud" {
-  type = string
+locals {
+  domain_name = "testdomain.ovh"
 }
-variable "domain_name" {
+
+variable "hetzner_token_cloud" {
   type = string
 }
 variable "hetzner_fingerprint" {
@@ -46,16 +47,15 @@ provider "ovh" {
 
 # Node
 resource "hcloud_server" "node" {
-  name        = var.domain_name
+  name        = local.domain_name
   image       = "debian-11"
   server_type = "cx11"
   datacenter  = "fsn1-dc14"
-  ssh_keys    = ["${data.hcloud_ssh_key.ssh_key.id}"]
+  ssh_keys    = [data.hcloud_ssh_key.ssh_key.id]
   user_data   = <<-EOF
 #!/bin/bash
-echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' | tee /etc/apt/sources.list.d/symfony-cli.list
 apt-get update
-apt-get -y install psmisc unzip mc net-tools fail2ban
+apt-get -y install psmisc mc net-tools fail2ban
 apt-get -y install openjdk-11-jdk-headless
 systemctl enable fail2ban
 systemctl start fail2ban
@@ -102,7 +102,7 @@ echo '[log]
   [entryPoints.secure]
     address = ":443"
 [certificatesResolvers.sample.acme]
-  email = "info@${var.domain_name}"
+  email = "info@${local.domain_name}"
   storage = "/etc/traefik/acme/acme.json"
   [certificatesResolvers.sample.acme.httpChallenge]
     entryPoint = "insecure"
@@ -110,13 +110,13 @@ echo '[log]
 echo '[http]
   [http.routers]
     [http.routers.https]
-      rule = "Host(`${var.domain_name}`)"
+      rule = "Host(`${local.domain_name}`)"
       service = "project"
       entryPoints = ["secure"]
     [http.routers.https.tls]
       certResolver = "sample"
     [http.routers.http]
-      rule = "Host(`${var.domain_name}`)"
+      rule = "Host(`${local.domain_name}`)"
       service = "project"
       entryPoints = ["insecure"]
 [http.services]
@@ -187,9 +187,9 @@ resource "null_resource" "deployment" {
 
 # DNS
 resource "ovh_domain_zone_record" "root" {
-  zone      = var.domain_name
+  zone      = local.domain_name
   subdomain = ""
-  target    = "${hcloud_server.node.ipv4_address}"
+  target    = hcloud_server.node.ipv4_address
   fieldtype = "A"
   ttl       = "3600"
 }
@@ -200,7 +200,7 @@ output "ip" {
 }
 output "url" {
   description = "Project URL"
-  value       = "https://${var.domain_name}"
+  value       = "https://${local.domain_name}"
 }
 output "version" {
   description = "Project version"

@@ -1,0 +1,9 @@
+{
+  "name": "project",
+  "version": "1.0.1",
+  "dependencies": {
+    "connect-memcached": "1.*",
+    "express": "4.*",
+    "express-session": "1.*"
+  }
+}

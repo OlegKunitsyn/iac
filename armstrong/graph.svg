@@ -28,7 +28,7 @@
 <polygon fill="black" stroke="black" points="924,-105.09 913.42,-105.62 922.02,-111.81 924,-105.09"/>
 </g>
 <!-- [root] var.hetzner_fingerprint -->
-<g id="node13" class="node">
+<g id="node12" class="node">
 <title>[root] var.hetzner_fingerprint</title>
 <polygon fill="none" stroke="black" points="1422.93,-108 1246.93,-108 1246.93,-72 1428.93,-72 1428.93,-102 1422.93,-108"/>
 <polyline fill="none" stroke="black" points="1422.93,-108 1422.93,-102 "/>
@@ -53,19 +53,17 @@
 <path fill="none" stroke="black" d="M1100.93,-215.7C1100.93,-207.98 1100.93,-198.71 1100.93,-190.11"/>
 <polygon fill="black" stroke="black" points="1104.43,-190.1 1100.93,-180.1 1097.43,-190.1 1104.43,-190.1"/>
 </g>
-<!-- [root] var.domain_name -->
-<g id="node12" class="node">
-<title>[root] var.domain_name</title>
-<polygon fill="none" stroke="black" points="1735.43,-180 1600.43,-180 1600.43,-144 1741.43,-144 1741.43,-174 1735.43,-180"/>
-<polyline fill="none" stroke="black" points="1735.43,-180 1735.43,-174 "/>
-<polyline fill="none" stroke="black" points="1741.43,-174 1735.43,-174 "/>
-<text text-anchor="middle" x="1670.93" y="-158.3" font-family="Times,serif" font-size="14.00">var.domain_name</text>
+<!-- [root] local.domain_name (expand) -->
+<g id="node18" class="node">
+<title>[root] local.domain_name (expand)</title>
+<ellipse fill="none" stroke="black" cx="1720.93" cy="-162" rx="170.87" ry="18"/>
+<text text-anchor="middle" x="1720.93" y="-158.3" font-family="Times,serif" font-size="14.00">[root] local.domain_name (expand)</text>
 </g>
-<!-- [root] hcloud_server.node (expand)&#45;&gt;[root] var.domain_name -->
+<!-- [root] hcloud_server.node (expand)&#45;&gt;[root] local.domain_name (expand) -->
 <g id="edge4" class="edge">
-<title>[root] hcloud_server.node (expand)&#45;&gt;[root] var.domain_name</title>
-<path fill="none" stroke="black" d="M1178.23,-217.39C1181.16,-216.9 1184.07,-216.44 1186.93,-216 1328.01,-194.37 1493.53,-178.22 1589.89,-169.73"/>
-<polygon fill="black" stroke="black" points="1590.48,-173.19 1600.14,-168.83 1589.87,-166.21 1590.48,-173.19"/>
+<title>[root] hcloud_server.node (expand)&#45;&gt;[root] local.domain_name (expand)</title>
+<path fill="none" stroke="black" d="M1178.22,-217.36C1181.16,-216.88 1184.07,-216.42 1186.93,-216 1317.39,-196.68 1466.85,-182.52 1574.4,-173.72"/>
+<polygon fill="black" stroke="black" points="1575,-177.18 1584.68,-172.89 1574.43,-170.21 1575,-177.18"/>
 </g>
 <!-- [root] null_resource.deployment (expand) -->
 <g id="node3" class="node">
@@ -92,7 +90,7 @@
 <polygon fill="black" stroke="black" points="1532.35,-260.43 1525.79,-252.1 1525.72,-262.7 1532.35,-260.43"/>
 </g>
 <!-- [root] var.project_version -->
-<g id="node18" class="node">
+<g id="node17" class="node">
 <title>[root] var.project_version</title>
 <polygon fill="none" stroke="black" points="2007.93,-252 1861.93,-252 1861.93,-216 2013.93,-216 2013.93,-246 2007.93,-252"/>
 <polyline fill="none" stroke="black" points="2007.93,-252 2007.93,-246 "/>
@@ -141,11 +139,11 @@
 <polyline fill="none" stroke="black" points="2082.43,-318 2076.43,-318 "/>
 <text text-anchor="middle" x="2037.93" y="-302.3" font-family="Times,serif" font-size="14.00">output.url</text>
 </g>
-<!-- [root] output.url&#45;&gt;[root] var.domain_name -->
+<!-- [root] output.url&#45;&gt;[root] local.domain_name (expand) -->
 <g id="edge10" class="edge">
-<title>[root] output.url&#45;&gt;[root] var.domain_name</title>
-<path fill="none" stroke="black" d="M2040.42,-287.94C2042.31,-267.79 2041.93,-234.67 2022.93,-216 1985.59,-179.31 1843.54,-167.97 1751.7,-164.5"/>
-<polygon fill="black" stroke="black" points="1751.71,-161 1741.59,-164.14 1751.46,-167.99 1751.71,-161"/>
+<title>[root] output.url&#45;&gt;[root] local.domain_name (expand)</title>
+<path fill="none" stroke="black" d="M2040.37,-287.66C2042.15,-267.56 2041.59,-234.79 2022.93,-216 2001.03,-193.95 1936.29,-180.99 1872.34,-173.41"/>
+<polygon fill="black" stroke="black" points="1872.42,-169.9 1862.09,-172.24 1871.63,-176.86 1872.42,-169.9"/>
 </g>
 <!-- [root] output.version -->
 <g id="node7" class="node">
@@ -186,7 +184,7 @@
 <polygon fill="black" stroke="black" points="475.43,-262.1 471.93,-252.1 468.43,-262.1 475.43,-262.1"/>
 </g>
 <!-- [root] var.hetzner_token_cloud -->
-<g id="node14" class="node">
+<g id="node13" class="node">
 <title>[root] var.hetzner_token_cloud</title>
 <polygon fill="none" stroke="black" points="952.43,-36 769.43,-36 769.43,0 958.43,0 958.43,-30 952.43,-36"/>
 <polyline fill="none" stroke="black" points="952.43,-36 952.43,-30 "/>
@@ -200,7 +198,7 @@
 <polygon fill="black" stroke="black" points="867.43,-46.1 863.93,-36.1 860.43,-46.1 867.43,-46.1"/>
 </g>
 <!-- [root] var.ovh_application_key -->
-<g id="node15" class="node">
+<g id="node14" class="node">
 <title>[root] var.ovh_application_key</title>
 <polygon fill="none" stroke="black" points="756.43,-180 577.43,-180 577.43,-144 762.43,-144 762.43,-174 756.43,-180"/>
 <polyline fill="none" stroke="black" points="756.43,-180 756.43,-174 "/>
@@ -214,7 +212,7 @@
 <polygon fill="black" stroke="black" points="613.36,-186.71 621.62,-180.08 611.03,-180.11 613.36,-186.71"/>
 </g>
 <!-- [root] var.ovh_application_secret -->
-<g id="node16" class="node">
+<g id="node15" class="node">
 <title>[root] var.ovh_application_secret</title>
 <polygon fill="none" stroke="black" points="360.43,-180 161.43,-180 161.43,-144 366.43,-144 366.43,-174 360.43,-180"/>
 <polyline fill="none" stroke="black" points="360.43,-180 360.43,-174 "/>
@@ -228,7 +226,7 @@
 <polygon fill="black" stroke="black" points="325.13,-179.9 314.54,-180.03 322.9,-186.54 325.13,-179.9"/>
 </g>
 <!-- [root] var.ovh_consumer_key -->
-<g id="node17" class="node">
+<g id="node16" class="node">
 <title>[root] var.ovh_consumer_key</title>
 <polygon fill="none" stroke="black" points="553.93,-180 383.93,-180 383.93,-144 559.93,-144 559.93,-174 553.93,-180"/>
 <polyline fill="none" stroke="black" points="553.93,-180 553.93,-174 "/>

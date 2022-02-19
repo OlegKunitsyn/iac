@@ -7,3 +7,5 @@ terraform.tfstate
 target/
 *.iml
 terraform.tfstate.backup
+node_modules/
+package-lock.json
