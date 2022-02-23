@@ -164,8 +164,26 @@ iptables -A INPUT -p tcp --dport 8001 -j DROP
     EOF
 }
 
+# Waiting for cloud-init
+resource "null_resource" "boot-finished" {
+  connection {
+    type        = "ssh"
+    user        = "root"
+    host        = hcloud_server.node.ipv4_address
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 5; done"
+    ]
+  }
+}
+
 # Deployment
 resource "null_resource" "deployment" {
+  depends_on = [null_resource.boot-finished]
+  triggers = {
+    version = var.project_version
+  }
   connection {
     type        = "ssh"
     user        = "root"
@@ -179,8 +197,8 @@ resource "null_resource" "deployment" {
     inline = [
       "cd /var/www/project",
       "nohup sudo -u www-data java -jar project-${var.project_version}.jar > /dev/null 2>&1 &",
-      "sleep 5",
-      "killall -q -o 10s -u www-data"
+      "killall -q -o 10s -u www-data",
+      "sleep 5"
     ]
   }
 }

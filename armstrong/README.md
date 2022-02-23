@@ -18,9 +18,9 @@ Single-node plain Java setup on VPS
 
 ## Notes
 - Traefik balances `8000` and `8001` ports
+- deployment waits for cloud-init
 - next application instance binds to one of them
 - previous instance is getting terminated
-- provisioning may fail on `deployment` step due to unfinished initialization of the VPS. Simply re-try it in 30-60 seconds.
 
 ## Provisioning and blue deployment
 Create `terraform.tfvars` file with your secrets
@@ -58,7 +58,7 @@ $ mvn clean install
 ```
 and finally
 ```
-$ terraform apply -replace=null_resource.deployment -auto-approve
+$ terraform apply -auto-approve
 var.project_version
   Enter a value: 1.0.2
 ip = "..."
