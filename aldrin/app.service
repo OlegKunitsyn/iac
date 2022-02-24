@@ -1,0 +1,12 @@
+[Unit]
+Description=App service
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/project
+ExecStart=/usr/bin/java -jar app.jar --spring.datasource.url=jdbc:hsqldb:hsql://10.0.1.254/project
+SuccessExitStatus=143
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

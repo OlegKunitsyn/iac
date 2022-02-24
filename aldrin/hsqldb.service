@@ -1,0 +1,12 @@
+[Unit]
+Description=HSQLDB service
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/project
+ExecStart=/usr/bin/java -classpath hsqldb.jar org.hsqldb.server.Server --database.0 file:hsqldb/project --dbname.0 project
+SuccessExitStatus=143
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target
