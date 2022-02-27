@@ -1,0 +1,12 @@
+vm.swappiness: 0
+bootstrap.memory_lock: true
+cluster.name: "${cluster_name}"
+node.name: "${node_name}"
+network.host: ["127.0.0.1", "${node_private_ip}"]
+discovery.zen.fd.ping_interval: 1s
+discovery.zen.fd.ping_retries: 2
+discovery.zen.fd.ping_timeout: 2s
+discovery.zen.publish_timeout: 2s
+discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.unicast.hosts: "${unicast_hosts}"
+index.refresh_interval: 5s

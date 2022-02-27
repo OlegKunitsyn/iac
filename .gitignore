@@ -9,3 +9,7 @@ target/
 terraform.tfstate.backup
 node_modules/
 package-lock.json
+image.auto.pkrvars.hcl
+vendor/
+var/
+.env.local
