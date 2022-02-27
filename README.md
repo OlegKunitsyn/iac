@@ -4,6 +4,9 @@ Materials for HashiCorp certification. See subdirectories.
 ### Gagarin
 Single-node plain PHP Symfony setup on VPS
 
+### Titov
+Multi-node clustered PHP Symfony setup on VPS with NoSQL database
+
 ### Armstrong
 Single-node plain Java setup on VPS
 

@@ -154,7 +154,7 @@ systemctl restart nginx
 
 # Deployment
 resource "null_resource" "deployment" {
-  depends_on = [hcloud_server.nodes]
+  depends_on = [hcloud_network_subnet.network-subnet]
   triggers   = {
     version = var.project_version
   }
@@ -166,12 +166,12 @@ resource "null_resource" "deployment" {
   }
   provisioner "remote-exec" {
     inline = [
-      "cd /var/www/project/iac",
+      "cd /var/www/project/iac/titov",
       "git pull",
-      "cd titov",
       "symfony composer install --no-dev --optimize-autoloader --no-interaction",
       "php bin/console app:elastic:create",
       "php bin/console app:elastic:update",
+      "systemctl reload nginx",
       "sleep 1",
     ]
   }
