@@ -144,7 +144,7 @@ mkdir /var/www/project
 cd /var/www/project
 git clone https://github.com/OlegKunitsyn/iac.git
 chown www-data:www-data /var/www/project/iac/titov
-echo '${templatefile("nginx.conf", { server_name = local.domain_name, root = "/var/www/project/iac/titov/public" })}' > /etc/nginx/sites-enabled/${local.domain_name}.conf
+echo '${templatefile("nginx.conf", { server_name = local.domain_name, root = "/var/www/project/iac/titov/public" })}' > /etc/nginx/sites-enabled/project.conf
 echo '${templatefile("elasticsearch.yml", { cluster_name = local.domain_name, node_name = "node-${count.index}", unicast_hosts = "es.${local.domain_name}", node_private_ip = replace(local.node_private_ip, "X", count.index + 2), })}' > /etc/elasticsearch/elasticsearch.yml
 systemctl restart elasticsearch
 systemctl restart php7.4-fpm
