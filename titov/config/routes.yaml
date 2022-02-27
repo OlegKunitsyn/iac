@@ -1,0 +1,8 @@
+route_index:
+  path: /
+  controller: App\Controller\IndexController::index
+  methods: GET
+route_visits:
+  path: /api/visits
+  controller: App\Controller\VisitController::index
+  methods: GET

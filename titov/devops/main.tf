@@ -114,7 +114,7 @@ resource "ovh_domain_zone_record" "es" {
   subdomain = "es"
   target    = replace(local.node_private_ip, "X", count.index + 2)
   fieldtype = "A"
-  ttl       = "30"
+  ttl       = "60"
 }
 
 # Nodes
@@ -150,6 +150,31 @@ systemctl restart elasticsearch
 systemctl restart php7.4-fpm
 systemctl restart nginx
     EOF
+}
+
+# Deployment
+resource "null_resource" "deployment" {
+  depends_on = [hcloud_server.nodes]
+  triggers   = {
+    version = var.project_version
+  }
+  count = length(hcloud_server.nodes)
+  connection {
+    type = "ssh"
+    user = "root"
+    host = hcloud_server.nodes[count.index].ipv4_address
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "cd /var/www/project/iac",
+      "git pull",
+      "cd titov",
+      "symfony composer install --no-dev --optimize-autoloader --no-interaction",
+      "php bin/console app:elastic:create",
+      "php bin/console app:elastic:update",
+      "sleep 1",
+    ]
+  }
 }
 
 output "ip" {
