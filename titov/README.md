@@ -1,5 +1,5 @@
 # Titov
-Multi-node clustered PHP Symfony setup on VPS with NoSQL database
+Multi-node clustered PHP Symfony setup on VPS with distributed NoSQL database
 
 ## Providers
 - Hetzner, EU zone

@@ -5,7 +5,7 @@ Materials for HashiCorp certification. See subdirectories.
 Single-node plain PHP Symfony setup on VPS
 
 ### Titov
-Multi-node clustered PHP Symfony setup on VPS with NoSQL database
+Multi-node clustered PHP Symfony setup on VPS with distributed NoSQL database
 
 ### Armstrong
 Single-node plain Java setup on VPS
