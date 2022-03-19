@@ -1,6 +1,7 @@
 terraform.tfvars
 .terraform/
 .terraform.lock.hcl
+.terraform.lock.info
 terraform.tfstate
 .idea/
 .mvn/
