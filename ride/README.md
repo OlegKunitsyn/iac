@@ -18,7 +18,7 @@ Multi-node orchestrated Spring Boot setup on VPS with centralized SQL database
   - Actuator
   - Data JPA
 
-<img src="mesh.png" alt="lb"/>
+<img src="mesh.png" alt="mesh"/>
 
 ## Notes
 - no load balancing
