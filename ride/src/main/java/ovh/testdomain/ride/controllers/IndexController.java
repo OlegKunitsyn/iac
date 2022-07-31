@@ -1,7 +1,6 @@
 package ovh.testdomain.ride.controllers;
 
 import io.swagger.v3.oas.annotations.Hidden;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ovh.testdomain.ride.Main;
@@ -12,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class IndexController {
-    @Autowired
-    private VisitRepository repository;
+    private final VisitRepository repository;
+
+    public IndexController(VisitRepository repository) {
+        this.repository = repository;
+    }
 
     @Hidden
     @GetMapping("/")

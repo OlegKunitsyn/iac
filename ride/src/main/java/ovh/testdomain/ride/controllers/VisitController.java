@@ -1,6 +1,5 @@
 package ovh.testdomain.ride.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ovh.testdomain.ride.models.Visit;
 import ovh.testdomain.ride.repositories.VisitRepository;
@@ -9,8 +8,11 @@ import ovh.testdomain.ride.repositories.VisitRepository;
 @RequestMapping("/api/visits")
 public class VisitController {
 
-    @Autowired
-    private VisitRepository repository;
+    private final VisitRepository repository;
+
+    public VisitController(VisitRepository repository) {
+        this.repository = repository;
+    }
 
     @GetMapping("/{id}")
     public Visit findById(@PathVariable long id) {
